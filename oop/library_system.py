@@ -4,6 +4,9 @@ class Book:
         self.title = title
         self.author = author
 
+    def __str__(self):
+        return f"{self.title} by {self.author}"
+
 #   derived classes (EBook & PrintBook)
 #   both classes inherit from Book
 class EBook(Book):
@@ -12,10 +15,16 @@ class EBook(Book):
         #   additional attribute (file_size)
         self.file_size = file_size
 
+    def __str__(self):
+        return super().__str__()
+
 class PrintBook(Book):
     def __init__(self, title, author , page_count: int):
         super().__init__(title, author)
         self.page_count = page_count
+
+    def __str__(self):
+        return super().__str__()
 
 class Library:
     def __init__(self , books = None):
